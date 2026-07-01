@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nostalgia Trip Survey</title>
+    <style>
+        :root {
+            --bg-color: #D2DAE3;
+            --card-color: #F7F2EF;
+            --text-color: #2D3748;
+            --accent-color: #4A5568;
+            --border-color: #CBD5E0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            background-color: var(--card-color);
+            max-width: 650px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: var(--accent-color);
+            margin-bottom: 8px;
+        }
+
+        p.subtitle {
+            font-size: 14px;
+            color: #718096;
+        }
+
+        fieldset {
+            border: none;
+            margin-bottom: 25px;
+        }
+
+        legend {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid var(--border-color);
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .question-label {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: #FFFFFF;
+            color: var(--text-color);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        input[type="email"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--accent-color);
+        }
+
+        .option-group {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .option-group input {
+            margin-top: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .option-group label {
+            font-weight: normal;
+            font-size: 14px;
+            margin-bottom: 0;
+            cursor: pointer;
+            line-height: 1.4;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        button[type="submit"] {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        button[type="reset"] {
+            background-color: var(--border-color);
+            color: var(--text-color);
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <header>
+            <h1>Internet Nostalgia Survey ツ</h1>
+            <p class="subtitle">Spending an afternoon dragging MP3s & iPods to make a custom 80-minute mix.</p>
+        </header>
+
+        <form action="https://script.google.com/macros/s/AKfycbyz1YUJqrtx9hjoRQn3DtMuMjtCBUeTvh4CsL86R8_zpjvWyNtjhxtLt3uRe89zcYJW2Q/exec" method="POST">
+            
+            <!-- SECTION 1: Personal Information -->
+            <fieldset>
+                <legend>1. Basic Personal Information</legend>
+                
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <input type="text" id="gender" gender="gender" required placeholder="Enter your gender">
+                </div>
+
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" name="age" min="1" max="120" required placeholder="Enter your age">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                </div>
+            </fieldset>
+
+            <!-- SECTION 2: Multiple-Choice Questions (Radio Buttons) -->
+            <fieldset>
+                <legend>2. The Early Internet & Social Media Era (Pick One)</legend>
+                
+                <div class="form-group">
+                    <span class="question-label">Q1: What was your primary vibe on early social media / instant messaging?</span>
+                    <div class="option-group">
+                        <input type="radio" id="q1-cryptic" name="q1" value="Cryptic" required>
+                        <label for="q1-cryptic"><strong>The Cryptic:</strong> Posting deeply dramatic lyrics as my status.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q1-decorator" name="q1" value="Decorator">
+                        <label for="q1-decorator"><strong>The Decorator:</strong> Spending hours coding HTML for the perfect profile background.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q1-ghost" name="q1" value="Ghost">
+                        <label for="q1-ghost"><strong>The Ghost:</strong> Lurking and reading everything, but never posting.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q1-oversharer" name="q1" value="Over-Sharer">
+                        <label for="q1-oversharer"><strong>The Over-Sharer:</strong> Documenting every single mundane detail of my day.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q2: If you could bring back one dead platform for one week, which is it?</span>
+                    <div class="option-group">
+                        <input type="radio" id="q2-vine" name="q2" value="Vine" required>
+                        <label for="q2-vine">Vine</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q2-myspace" name="q2" value="MySpace">
+                        <label for="q2-myspace">MySpace</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q2-tumblr" name="q2" value="Tumblr">
+                        <label for="q2-tumblr">Tumblr</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q2-friendster" name="q2" value="Friendster">
+                        <label for="q2-friendster">Friendster</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q3: Which classic internet sound triggers the deepest memory for you?</span>
+                    <div class="option-group">
+                        <input type="radio" id="q3-dialup" name="q3" value="Dial-up" required>
+                        <label for="q3-dialup">The screeching of dial-up internet connecting.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q3-yahoo" name="q3" value="Yahoo">
+                        <label for="q3-yahoo">Yahoo! Messenger "BUZZ" and Chime</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q3-windows" name="q3" value="Windows XP">
+                        <label for="q3-windows">Windows XP Startup and Error Chimes</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="radio" id="q3-blackberry" name="q3" value="Blackberry">
+                        <label for="q3-blackberry">The clicky clack of a classic blackberry keyboard. </label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 3: Checkbox Selections -->
+            <fieldset>
+                <legend>3. Old-School Media & Culture Habits (Select All That Apply)</legend>
+                
+                <div class="form-group">
+                    <span class="question-label">Q4: Which outdated music routines do you secretly miss?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q4-burning" name="q4[]" value="Burning CDs">
+                        <label for="q4-burning">Burning custom MP3 mixtapes onto CD-Rs.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q4-binder" name="q4[]" value="CD Binder">
+                        <label for="q4-binder">Flipping through a giant, zippered CD binder in the car passenger seat.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q4-radio" name="q4[]" value="Radio Cassette">
+                        <label for="q4-radio">Recording songs off the radio onto a cassette tape.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q4-booklet" name="q4[]" value="Lyric Booklet">
+                        <label for="q4-booklet">Buying a physical album just to read the lyric booklet inside.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q5: What was your dynamic at the movie rental store (e.g., Blockbuster)?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q5-membership" name="q5[]" value="Membership/Deposit">
+                        <label for="q5-membership">The Membership Card and the "Deposit" System</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q5-scavenging" name="q5[]" value="New Arrivals Wall">
+                        <label for="q5-scavenging">The Art of Scavenging the "New Arrivals" Wall</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q5-quality" name="q5[]" value="Cam Quality Fear">
+                        <label for="q5-quality">The Fear of the "Camed" or "TS" Quality</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q6: How did you handle TV commercials before streaming existed?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q6-sprinting" name="q6[]" value="Sprinting">
+                        <label for="q6-sprinting">Sprinting to the bathroom/kitchen and racing back before the show started.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q6-muting" name="q6[]" value="Muting">
+                        <label for="q6-muting">Muting the TV instantly because commercials were too loud.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q6-changing" name="q6[]" value="Channel Hopping">
+                        <label for="q6-changing">Changing channels to see what else was on, then missing the actual show. </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q7: What was your go-to strategy when a gaming cartridge wouldn't load?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q7-blowing" name="q7[]" value="Blowing Cartridge">
+                        <label for="q7-blowing">Blowing into the cartridge with full lung capacity</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q7-tapping" name="q7[]" value="Tapping Cartridge">
+                        <label for="q7-tapping">Firmly tapping it against my hand a few times.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q7-jamming" name="q7[]" value="Jamming Console">
+                        <label for="q7-jamming">Repeatedly jamming it in and out of the console until it worked.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q8: Which classic "virtual pet" or simulation did you interact with?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q8-tamagotchi" name="q8[]" value="Tamagotchi">
+                        <label for="q8-tamagotchi">Tamagotchi / Giga Pet</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q8-society" name="q8[]" value="Pet Society">
+                        <label for="q8-society">Pet Society</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q8-sims" name="q8[]" value="The Sims">
+                        <label for="q8-sims">I didn't do virtual pets, I played The Sims.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q9: What is your honest stance on internet spoilers for a massive movie?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q9-lockdown" name="q9[]" value="Lockdown">
+                        <label for="q9-lockdown">Total Lockdown: I mute words on social media until I see it.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q9-casual" name="q9[]" value="Casual">
+                        <label for="q9-casual">Casual: I try to avoid them, but I won't cry over a meme.</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q9-chaotic" name="q9[]" value="Chaotic">
+                        <label for="q9-chaotic">Chaotic: I actively look up the plot summary before buying a ticket.</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="question-label">Q10: Which childhood snack or discontinued food item do you want back right now?</span>
+                    <div class="option-group">
+                        <input type="checkbox" id="q10-pops" name="q10[]" value="Nestle Pops">
+                        <label for="q10-pops">Nestlé Pops</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q10-krushers" name="q10[]" value="KFC Krushers">
+                        <label for="q10-krushers">KFC Krushers</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q10-pepsi" name="q10[]" value="Pepsi Blue/Twist">
+                        <label for="q10-pepsi">Pepsi Blue / Pepsi Twist</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q10-yakee" name="q10[]" value="Yakee Gum">
+                        <label for="q10-yakee">Yakee! Bubble Gum</label>
+                    </div>
+                    <div class="option-group">
+                        <input type="checkbox" id="q10-lumpia" name="q10[]" value="Lumpia Snack">
+                        <label for="q10-lumpia">Lumpia Shanghai Snack</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 4: Dropdown Menu -->
+            <fieldset>
+                <legend>4. Dropdown Menu (Nostalgia Rating)</legend>
+                <div class="form-group">
+                    <label for="satisfaction">How satisfied are you with the current era of modern tech compared to the past?</label>
+                    <select id="satisfaction" name="satisfaction" required>
+                        <option value="" disabled selected>Choose your satisfaction level</option>
+                        <option value="highly-satisfied">Highly Satisfied (Modern tech is way better)</option>
+                        <option value="satisfied">Satisfied (Convenient, but missing the old era)</option>
+                        <option value="neutral">Neutral (Both eras have their pros and cons)</option>
+                        <option value="dissatisfied">Dissatisfied (Take me back to 2005 immediately)</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 5: Additional Feedback (Textarea) -->
+            <fieldset>
+                <legend>5. Feedback</legend>
+                <div class="form-group">
+                    <label for="feedback">Got any other old school memories or suggestions? Leave them here:</label>
+                    <textarea id="feedback" name="feedback" rows="4" placeholder="Type your comments, suggestions, or feedback..."></textarea>
+                </div>
+            </fieldset>
+
+            <!-- SECTION 6: Form Buttons -->
+            <div class="button-group">
+                <button type="reset">Reset</button>
+                <button type="submit">Submit</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
